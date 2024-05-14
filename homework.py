@@ -30,7 +30,7 @@ def list_internal_links(driver):
     random_link = random.choice(links)
     try:
         link = random_link.get_attribute('href')
-        # pprint.pprint(link)
+        pprint.pprint(link)
         driver.get(link)
     except:
         print(f"------> Ошибка при переходе по ссылке {link}")
@@ -44,6 +44,7 @@ def main():
         print("Выберите действие:")
         print("1 – Листать параграфы текущей статьи")
         print("2 – Перейти на одну из связанных страниц")
+        print("3 – Вернуться к первоначальному запросу")
         print("Др.клавиша – Завершение")
         choice = input("Ваш выбор: ")
 
@@ -51,6 +52,8 @@ def main():
             list_paragraphs(driver)
         elif choice == '2':
             list_internal_links(driver)
+        elif choice == '3':
+            search_wikipedia(driver, query)
         else:
             break
 
