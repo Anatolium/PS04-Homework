@@ -30,7 +30,7 @@ def list_internal_links(driver):
     random_link = random.choice(links)
     try:
         link = random_link.get_attribute('href')
-        pprint.pprint(link)
+        # pprint.pprint(link)
         driver.get(link)
     except:
         print(f"------> Ошибка при переходе по ссылке {link}")
