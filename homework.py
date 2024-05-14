@@ -26,13 +26,12 @@ def list_paragraphs(driver):
 
 def list_internal_links(driver):
     # Переход на связанные страницы
-    save_driver = driver
-    links = save_driver.find_elements(By.CSS_SELECTOR, 'div.mw-parser-output > p a')
+    links = driver.find_elements(By.CSS_SELECTOR, 'div.mw-parser-output > p a')
     random_link = random.choice(links)
     try:
         link = random_link.get_attribute('href')
         # pprint.pprint(link)
-        save_driver.get(link)
+        driver.get(link)
     except:
         print(f"------> Ошибка при переходе по ссылке {link}")
 
